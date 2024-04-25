@@ -54,7 +54,7 @@ export function reduce() {
 	return inventors.reduce((acc,curr) =>{
 		const life = curr.passed-curr.year;
 		return acc + life;
-	} );
+	} ,0);
 }
 
 // 5. Sort the inventors by years lived and return the sorted array
