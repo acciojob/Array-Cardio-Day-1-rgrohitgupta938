@@ -111,16 +111,17 @@ export function sortByLastName() {
         const [lastNameA, firstNameA] = a.split(', ');
         const [lastNameB, firstNameB] = b.split(', ');
 
-      // Compare last names using localeCompare()
-        const lastNameComparison = lastNameA.localeCompare(lastNameB);
-
-        // If last names are different, return the result of the comparison
-        if (lastNameComparison !== 0) {
-            return lastNameComparison;
+        // Compare last names
+        if (lastNameA < lastNameB) {
+            return -1;
         }
-
-        // If last names are the same, compare first names
-        return firstNameA.localeCompare(firstNameB);
+        if (lastNameA > lastNameB) {
+            return 1;
+        }
+        // If both last names and first names are equal, return 0
+        if(lastNameA === lastNameB){
+			return 0;
+		}
     });
 }
 
