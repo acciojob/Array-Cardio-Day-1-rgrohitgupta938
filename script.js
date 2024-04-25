@@ -75,18 +75,10 @@ export function sortByLastName() {
 return people.sort((a, b) => {
         const [lastNameA, firstNameA] = a.split(', ');
         const [lastNameB, firstNameB] = b.split(', ');
-
         if (lastNameA < lastNameB) {
             return -1;
         }
         if (lastNameA > lastNameB) {
-            return 1;
-        }
-
-        if (firstNameA < firstNameB) {
-            return -1;
-        }
-        if (firstNameA > firstNameB) {
             return 1;
         }
         return 0;
@@ -103,5 +95,5 @@ export function reducedSum() {
 	return data.reduce((acc,trans) => {
 		acc[trans] = (acc[trans] || 0 )+1;
 		return acc;
-	})
+	},{})
 }
