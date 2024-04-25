@@ -43,7 +43,7 @@ return inventors.map((i) => `${i.first} ${i.last}`)
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest and return the sorted array
 export function sort() {
-return inventors.sort((a,b) => b.year-a.year);
+return inventors.sort((a,b) => a.year-b.year);
 }
 
 
@@ -51,12 +51,15 @@ return inventors.sort((a,b) => b.year-a.year);
 // 4. How many years did all the inventors live?
 // Return the total number of years all the inventors lived
 export function reduce() {
-	return inventors.reduce((curr,acc) => acc+curr.passed-curr.year,0);
+	return inventors.reduce((acc,curr) =>{
+		const life = curr.passed-curr.year;
+		return acc + life;
+	} );
 }
 
 // 5. Sort the inventors by years lived and return the sorted array
 export function sortbylived() {
-	return inventors.sort((a,b) => a.year-b.year);
+	return inventors.sort((a,b) => (a.passed-a.year)-(b.passed-b.year));
 }
 
 // 6. sort Exercise
