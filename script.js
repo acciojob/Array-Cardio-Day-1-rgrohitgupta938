@@ -105,21 +105,22 @@ export function sortbylived() {
   });
 }
 
-// 6. sort Exercise
-// Sort the people alphabetically by last name and return the sorted array
+// 6. Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
-  return people.sort((a, b) => {
-    const [lastNameA, firstNameA] = a.split(", ");
-    const [lastNameB, firstNameB] = b.split(", ");
-    if (lastNameA < lastNameB) {
-      return -1;
-    }
-    if (lastNameA > lastNameB) {
-      return 1;
-    }
-    return 0;
-  });
+    return people.sort((a, b) => {
+        const [lastNameA, firstNameA] = a.split(', ');
+        const [lastNameB, firstNameB] = b.split(', ');
+
+        if (lastNameA < lastNameB) {
+            return -1;
+        }
+        if (lastNameA > lastNameB) {
+            return 1;
+        }
+        return 0;
+    });
 }
+
 
 // 7. Reduce Exercise
 // Sum up the instances of each of these
