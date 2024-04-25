@@ -111,24 +111,16 @@ export function sortByLastName() {
         const [lastNameA, firstNameA] = a.split(', ');
         const [lastNameB, firstNameB] = b.split(', ');
 
-        // Compare last names
-        if (lastNameA < lastNameB) {
-            return -1;
-        }
-        if (lastNameA > lastNameB) {
-            return 1;
+      // Compare last names using localeCompare()
+        const lastNameComparison = lastNameA.localeCompare(lastNameB);
+
+        // If last names are different, return the result of the comparison
+        if (lastNameComparison !== 0) {
+            return lastNameComparison;
         }
 
-        // If last names are equal, compare first names
-        if (firstNameA < firstNameB) {
-            return -1;
-        }
-        if (firstNameA > firstNameB) {
-            return 1;
-        }
-
-        // If both last names and first names are equal, return 0
-        return 0;
+        // If last names are the same, compare first names
+        return firstNameA.localeCompare(firstNameB);
     });
 }
 
