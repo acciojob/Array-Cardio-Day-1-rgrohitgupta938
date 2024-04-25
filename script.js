@@ -29,21 +29,21 @@ const people = [
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's and return the filtered array
 export function myfilter() {
-
+return inventors.filter((i) => i.year >=1500&&i.year<1600);
 }
 
 // Array.prototype.map()
 // 2. Give us an array of the inventor first and last names (i.e. full name)
 // Ex: For the first inventor the full name will be 'Albert Einstein'
 export function map() {
-
+return inventors.map((i) => `${i.first} ${i.last}`)
 }
 
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest and return the sorted array
 export function sort() {
-
+return inventors.sort((a,b) => b.year-a.year);
 }
 
 
@@ -51,17 +51,36 @@ export function sort() {
 // 4. How many years did all the inventors live?
 // Return the total number of years all the inventors lived
 export function reduce() {
-
+	return inventors.reduce((curr,acc) => acc+curr.passed-curr.year,0);
 }
 
 // 5. Sort the inventors by years lived and return the sorted array
 export function sortbylived() {
-
+	return inventors.sort((a,b) => a.year-b.year);
 }
 
 // 6. sort Exercise
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
+return people.sort((a, b) => {
+        const [lastNameA, firstNameA] = a.split(', ');
+        const [lastNameB, firstNameB] = b.split(', ');
+
+        if (lastNameA < lastNameB) {
+            return -1;
+        }
+        if (lastNameA > lastNameB) {
+            return 1;
+        }
+
+        if (firstNameA < firstNameB) {
+            return -1;
+        }
+        if (firstNameA > firstNameB) {
+            return 1;
+        }
+        return 0;
+    });
 
 }
 
@@ -71,4 +90,8 @@ const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bik
 
 export function reducedSum() {
     // Return an object containing transports as key and its number of occurances as the key's value
+	return data.reduce((acc,trans) => {
+		acc[trans] = (acc[trans] || 0 )+1;
+		return acc;
+	})
 }
